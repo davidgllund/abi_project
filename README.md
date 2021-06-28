@@ -36,8 +36,9 @@ Python >= 3.8.10
 - seaborn >= 0.11.0
 - pybiomart >= 0.2.0
 
-Alternatively, if you have conda installed you can use the provided file **abi_project_env.yml** to create an appropriate environment using
+Alternatively, if you have conda installed you can use the provided file **abi_project_env.yml** to create an appropriate environment:
 
 ```bash
 conda env create -f abi_project_env.yml
+conda activate abi_project
 ```
