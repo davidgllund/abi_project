@@ -102,7 +102,7 @@ domains_over_100 = get_number_of_domains(over_100, domain_filtered)
 print("\nCalculating domains for proteins with degree =< 100.")
 domains_under_100 = get_number_of_domains(under_100, domain_filtered)
 
-print("\nFinished calculations, generating boxplot.\n")
+print("\nFinished calculations, generating results.\n")
 
 # Create data frame to use for plotting. Also include the logarithm of the number of domains.
 combined_domains = pd.Series(domains_over_100+domains_under_100, dtype='object')
@@ -119,3 +119,14 @@ sns.set_style('whitegrid')
 sns.set_context('talk')
 sns_plot = sns.catplot(data=df_filtered, y='log(Number of protein domains)', x='Node degree', kind='box')
 sns_plot.savefig(sys.argv[3], dpi=1200)
+
+
+# Compile and print summary of results
+over_100_filtered = df_filtered[df_filtered['Node degree'] == "> 100"]
+under_100_filtered = df_filtered[df_filtered['Node degree'] == "=< 100"]
+
+results_df = pd.DataFrame({'Node degree': ("> 100", "=< 100"), 'Mean': (np.mean(over_100_filtered['Number of protein domains']),np.mean(under_100_filtered['Number of protein domains'])), 'Median': (np.median(over_100_filtered['Number of protein domains']),np.median(under_100_filtered['Number of protein domains'])), 'Min': (np.min(over_100_filtered['Number of protein domains']),np.min(under_100_filtered['Number of protein domains'])), 'Max': (np.max(over_100_filtered['Number of protein domains']),np.max(under_100_filtered['Number of protein domains']))})
+
+print("\nSummary: Number of protein domains per group\n")
+
+print(results_df.to_string(index=False))
