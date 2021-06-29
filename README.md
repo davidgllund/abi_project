@@ -17,6 +17,10 @@ Configuration file required to run the makefile.
 
 **yml**-file that can be used to easily create a conda environment containing all dependencies.
 
+### **appbio_project_results.pdf**
+
+File containing a description of the results from the project. Can be used as reference when attempting to reproduce the results.
+
 ### **scripts**
 
 Directory containing auxiliary python scripts used during the analysis.
