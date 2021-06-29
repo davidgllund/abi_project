@@ -11,7 +11,7 @@ Main file used to produce the results.
 
 ### **config.mk**
 
-Cofiguration file required to run the makefile.
+Configuration file required to run the makefile.
 
 ### **abi_project_env.yml**
 
